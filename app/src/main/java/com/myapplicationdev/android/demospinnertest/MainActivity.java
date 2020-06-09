@@ -1,0 +1,48 @@
+package com.myapplicationdev.android.demospinnertest;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+Spinner spnYesNo;
+TextView tv;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        spnYesNo = findViewById(R.id.spinner);
+        tv = findViewById(R.id.tv);
+        spnYesNo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                switch(i){
+                    case 0:
+                        if(spnYesNo.getSelectedItemPosition() == 0){
+                            tv.setText("Spinner Item , yes is selected.");}
+
+
+
+                        break;
+
+                    case 1:
+                        if(spnYesNo.getSelectedItemPosition() ==1 ){
+                            tv.setText("Spinner Item , No is Selected");
+                        }
+
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
+}
